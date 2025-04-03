@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <link rel="shortcut icon" href="https://ik.imagekit.io/7de5cntkw/Dark%20Green%20Modern%20Initial%20Logo%20(3)-photoaidcom-cropped.png?updatedAt=1738043221528" type="image/x-icon">
+    <title>HandCrafted-Gem</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+.upper-body{
+  background-color: #F1F1F0;
+}
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            border-bottom: 1px solid #e5e5e5;
+            position: sticky;
+            top: 0;
+            background-color: #fff;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar .logo {
+            font-size: 2.2rem;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #b1935e;
+            font-family:  Marcellus, Roboto, sans-serif;
+        }
+
+        .navbar ul {
+            display: flex;
+            list-style: none;
+            font-family: Jost, Roboto, sans-serif;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 24px;
+        }
+
+        .navbar ul li {
+            margin-left: 25px;
+            position: relative;
+        }
+
+        .navbar ul li a {
+            text-decoration: none;
+            color: #333;
+            font-size: 1.2rem;
+            font-weight: 500;
+            padding: 5px 10px;
+            transition: all 0.3s ease;
+        }
+
+        .navbar ul li a:hover {
+            color: #b1935e;
+            border-bottom: 2px solid #b1935e;
+        }
+
+        .navbar ul li .dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #fff;
+            border: 1px solid #e5e5e5;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            min-width: 200px;
+            z-index: 1000;
+            border-radius: 4px;
+        }
+
+        .navbar ul li .dropdown a {
+            display: block;
+            padding: 12px;
+            white-space: nowrap;
+            color: #333;
+            font-size: 0.95rem;
+            transition: background 0.3s ease;
+        }
+
+        .navbar ul li .dropdown a:hover {
+            background: #f2f2f2;
+            color: #b1935e;
+        }
+
+        .navbar ul li:hover .dropdown {
+            display: block;
+        }
+
+        .navbar ul li a.active {
+            color: #b1935e;
+            border-bottom: 2px solid #b1935e;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            height: 3px;
+            width: 25px;
+            background-color: #333;
+            margin: 4px 0;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            background: #fff;
+            width: 100%;
+            position: absolute;
+            top: 60px;
+            left: 0;
+            border-top: 1px solid #e5e5e5;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            z-index: 999;
+        }
+
+        .mobile-menu a {
+            padding: 15px;
+            text-decoration: none;
+            color: #333;
+            font-size: 1.2rem;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        .mobile-menu a:hover {
+            background-color: #f2f2f2;
+            color: #b1935e;
+        }
+
+        @media (max-width: 768px) {
+            .navbar ul {
+                display: none;
+            }
+.mobile-menu.active {
+    display: flex;
+}
+            .hamburger {
+                display: flex;
+            }
+
+            .hamburger.active + .mobile-menu {
+                display: flex;
+            }
+        }
+
+        nav {
+  background-color: #333; /* Dark background */
+  color: white; /* White text color */
+  padding: 15px 20px; /* Space inside the navbar */
+  display: flex;
+  justify-content: space-between; /* Space out menu items */
+  align-items: center;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 15px; /* Space between nav links */
+  font-size: 18px; /* Increased font size */
+  transition: color 0.3s ease; /* Smooth hover effect */
+}
+
+nav a:hover {
+  color: #f4a261; /* Highlighted color on hover */
+}
+
+
+
+/* General Footer Styles */
+.professional-footer {
+  background-color: #ffffff;
+  color: #000000;
+  padding: 40px 0;
+  font-family: Arial, sans-serif;
+  
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-section {
+  width: 22%;
+  padding: 0 15px;
+}
+
+.footer-section h3 {
+  font-family: Jost, Roboto, sans-serif;
+  font-size: 28px ;
+  font-weight: 400;
+  line-height:  27px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: rgb(0, 0, 0)
+}
+
+.footer-section p {
+  font-family: Jost, Roboto, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  color: rgba(0, 0, 0, 0.8);  /* Slightly lighter text for readability */
+}
+.email:hover{
+      .email {
+      display: inline-block;
+      position: relative;
+      font-size: 18px;
+      font-weight: bold;
+      text-decoration: none;
+      color: #000;
+    }
+
+    .email::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background-color: #000;
+      transition: width 0.3s ease;
+    }
+
+    .email:hover::after {
+      width: 100%;
+    }
+
+}
+.footer-section ul {
+  padding-left: 0;
+  list-style-type: none;
+}
+
+.footer-section ul li {
+  margin-bottom: 10px;
+}
+
+/* Links Styling */
+.footer-section a {
+  color: #000000;
+  text-decoration: none;
+  position: relative;
+  transition: color 0.3s, background-color 0.3s;
+}
+
+.footer-section a:hover {
+  color: #333333;                   /* Darker color on hover for text */
+}
+
+/* Underline Styling on Hover */
+.footer-section a::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;                  /* Position the underline just below the text */
+  width: 100%;
+  height: 1px;
+  background-color: #333;        /* Underline color */
+  transform: scaleX(0);           /* Initially set width to 0 */
+  transform-origin: bottom right; /* Start from the right side */
+  transition: transform 0.4s ease-in-out; /* Smooth transition */
+}
+
+.footer-section a:hover::before {
+  transform: scaleX(1);           /* Expand underline from left to right */
+  transform-origin: bottom left;  /* Move underline from left */
+}
+
+/* Responsive Design for Small Screens */
+@media screen and (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-section {
+    width: 100%;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .footer-section h3 {
+    font-family: serif;
+    font-size: 18px;
+  }
+
+  .footer-section p {
+    font-size: 13px;
+  }
+
+  .footer-section a {
+    font-size: 16px;
+  }
+}
+
+
+  /* Container styling */
+  .highlighted-products {
+    padding: 40px;
+    background-color: #f4f4f4;
+  }
+
+  .product-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+  }
+
+  /* Product Card styling */
+  .product-card {
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    width: 320px;
+    height: 550px; /* Adjusted to accommodate larger image height */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .product-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Image styling */
+  .product-card img {
+    width: 100%;
+    height: 300px; /* Increased the image height */
+    object-fit: cover; /* Ensures the image fills the area proportionally */
+    border-bottom: 1px solid #e0e0e0;
+  }
+
+  /* Content styling */
+  .product-details {
+    padding: 20px;
+    text-align: center;
+    flex-grow: 1;
+  }
+
+  .product-details h3 {
+    font-size: 22px;
+    font-weight: bold;
+    color: #333;
+    margin: 10px 0;
+  }
+
+  .product-details p {
+    font-size: 16px;
+    color: #666;
+    margin: 10px 0 20px;
+    line-height: 1.5;
+  }
+
+  /* Button styling */
+  .purchase-button {
+    display: inline-block;
+    width: 90%;
+    padding: 12px 0;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #007bff;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+
+  .purchase-button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .product-card {
+      width: 100%;
+    }
+
+    .purchase-button {
+      width: 80%;
+    }
+  }
+.contact {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            max-width: 1200px;
+            margin: 50px auto;
+            background: #fff;
+            
+            overflow: hidden;
+        }
+        .contact-left {
+            flex: 1;
+            min-width: 360px;
+            background: url('') no-repeat center center/cover;
+            height: 90vh;
+            border-radius: 8px;
+        }
+        .contact-right {
+          
+            flex: 1;
+            min-width: 300px;
+            padding: 40px;
+        }
+        .contact-right h2 {
+            font-family: 'Marcellus', serif;
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .contact-form label {
+            font-weight: bold;
+            font-size: 15px;
+            margin-bottom: 5px;
+        }
+        .contact-form input, .contact-form textarea, .contact-form button {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            width: 100%;
+        }
+        .contact-form textarea {
+            resize: vertical;
+            height: 100px;
+        }
+        .contact-form button {
+          font-family: Outfit, sans-serif;
+         height: 45px;
+         font-size: 16px;
+            background-color:#724ec6;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .contact-form button:hover {
+            background-color:#9164FF; 
+        }
+        @media (max-width: 768px) {
+            .contact {
+                flex-direction: column;
+            }
+            .contact {
+        flex-direction: column;
+    }
+
+    .contact-left {
+      display: none;
+        height: 200px;
+        background-size: cover;
+        background-position: center;
+    }
+
+    .contact-right {
+        padding: 30px;
+        width: 100%;
+    }
+
+    .contact-form input,
+    .contact-form textarea,
+    .contact-form button {
+        font-size: 16px;
+        padding: 12px;
+    }
+
+    .contact-form textarea {
+        resize: vertical;
+        height: 100px;
+    }
+
+    .contact-form button {
+        font-size: 14px;
+        padding: 12px 20px;
+        height: 45px;
+    }
+
+    /* General product adjustments */
+    .product-card {
+        width: 100%;
+        height: auto;
+        margin-bottom: 20px;
+    }
+
+    .product-card img {
+        height: 250px;
+    }
+
+    .product-details h3 {
+        font-size: 20px;
+    }
+
+    .product-details p {
+        font-size: 14px;
+    }
+
+    .purchase-button {
+        width: 80%;
+    }
+}
+        
+</style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Marcellus&display=swap"
+    rel="stylesheet">
+</head>
+<body>
+  <div class="upper-body">
+    <nav class="navbar">
+        <div class="logo">HandCrafted-Gem</div>
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul>
+            <li><a href="handcrafted-gem" class="active">Home</a></li>
+            <li><a href="about">About</a></li>
+            <li>
+                <a href="product">Products</a>
+                <div class="dropdown">
+                    <a href="#">Necklaces</a>
+                    <a href="#">Bracelets</a>
+                    <a href="#">Earrings</a>
+                    <a href="#">Rings</a>
+                </div>
+            </li>
+            <li><a href="contact">Contact</a></li>
+        </ul>
+         <div class="mobile-menu" id="mobile-menu">
+            <a href="handcrafted-gem" class="active">Home</a>
+            <a href="about">About</a>
+            <a href="product">Products</a>
+            <a href="contact">Contact</a>
+        </div>
+    </nav>
+
+  </div>
+
+
+<div class="contact">
+    <div class="contact-left">
+      <img src="" alt="">
+    </div>
+    <div class="contact-right">
+        <h2>Let's Get In Touch</h2>
+        <form class="contact-form" action="submitted" method="post">
+            <label for="first-name">First Name</label>
+            <input type="text" id="first-name" name="firstname" placeholder="Your First Name" required>
+
+            <label for="last-name">Last Name</label>
+            <input type="text" id="last-name" name="lastname" placeholder="Your Last Name" required>
+
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="Your Email" required>
+
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" placeholder="Your Phone Number" required>
+
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+
+            <button type="submit" name="submit" >SEND NOW</button>
+        </form>
+    </div>
+</div>
+
+
+
+
+
+
+  
+  <footer class="professional-footer">
+  <div class="footer-container">
+    <!-- Section 1: Company Name -->
+    <div class="footer-section company-info">
+      <h3 class="comp-name">HandCrafted-Gem</h3>
+      <p>Gravida massa volutpat aenean odio. Amet, turpis erat nullam fringilla elementum diam in. Nisi, purus vitae, ultrices nunc. Sit ac sit suscipit hendrerit.</p>
+    </div>
+
+    <!-- Section 2: Quick Links -->
+    <div class="footer-section quick-links">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="handcrafted-gem">Home</a></li>
+        <li><a href="about">About</a></li>
+        <li><a href="product">Product</a></li>
+        <li><a href="contact">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- Section 3: Help and Info -->
+    <div class="footer-section help-info">
+      <h3>Help & Info</h3>
+      <ul>
+        <li><a href="#">Track Your Order</a></li>
+        <li><a href="#">Returns + Exchanges</a></li>
+        <li><a href="#">Shipping + Delivery</a></li>
+        <li><a href="#">Contact Us</a></li>
+        <li><a href="#">Find Us Easy</a></li>
+        <li><a href="#">FAQs</a></li>
+      </ul>
+    </div>
+
+    <!-- Section 4: Contact Us -->
+    <div class="footer-section contact-us">
+      <h3>Contact Us</h3>
+      <p>Do you have any questions or suggestions? <a href="mailto:handcraftedgemofficial@gmail.com">handcraftedgemofficial@gmail.com</a></p>
+      <p>Do you need support? Give us a call. <a href="tel:+43720115278">+91 00000 00000</a></p>
+    </div>
+  </div>
+</footer>
+<!-- <script src=" https://smtpjs.com/v3/smtp.js"></script> -->
+    <script>
+       const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobile-menu');
+
+hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    mobileMenu.classList.toggle('active');
+});
+  window.addEventListener('load', () => {
+    gsap.fromTo("body", { opacity: 0 }, { opacity: 1, duration: 1 });
+  });
+  window.addEventListener('load', () => {
+      document.body.style.opacity = '1';
+    });
+
+    window.addEventListener('scroll', () => {
+    const navbar = document.querySelector('.navbar');
+    if (window.scrollY > 0) {
+        navbar.classList.add('fixed'); // Add fixed class when scrolling down
+    } else {
+        navbar.classList.remove('fixed'); // Remove fixed class when at top
+    }
+});
+let currentIndex = 0;
+const imagesPerPage = 3; // Show 3 images at a time
+const totalImages = 12; // Total 12 images
+const carousel = document.querySelector('.carousel');
+
+function moveSlide(direction) {
+  currentIndex += direction;
+  
+  if (currentIndex < 0) {
+    currentIndex = totalImages - imagesPerPage;
+  } else if (currentIndex >= totalImages - imagesPerPage) {
+    currentIndex = 0;
+  }
+
+  carousel.style.transform = `translateX(-${currentIndex * (365 + 20)}px)`;
+}
+
+// Automatically show the first 3 images
+moveSlide(0);
+
+document.querySelector(".contact-form").addEventListener("submit", async function (event) {
+    event.preventDefault(); // Prevent default form submission
+
+    const formData = new FormData(this);
+    const formObject = Object.fromEntries(formData.entries());
+
+    try {
+        const response = await fetch("/submitted", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(formObject),
+        });
+
+        const result = await response.json();
+        alert(result.message);
+    } catch (error) {
+        alert("Error submitting form. Please try again.");
+        console.error("Form submission error:", error);
+    }
+});
+
+    </script>
+   </body>
+</html>

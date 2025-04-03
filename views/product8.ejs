@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HandCrafted-Gem</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="https://ik.imagekit.io/7de5cntkw/Dark%20Green%20Modern%20Initial%20Logo%20(3)-photoaidcom-cropped.png?updatedAt=1738043221528" type="image/x-icon">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f1f3f6;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            padding-top: 50px;
+        }
+        .container {
+            display: flex;
+            max-width: 1000px;
+            background-color: #fff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        .image-section {
+            width: 35%;
+            padding: 20px;
+            text-align: center;
+            border-right: 1px solid #ddd;
+        }
+        .image-section img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+        .thumbnail-section {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .thumbnail-section img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border: 2px solid transparent;
+            cursor: pointer;
+        }
+        .thumbnail-section img:hover {
+            border: 2px solid #fb641b;
+        }
+        .product-details {
+            width: 65%;
+            padding: 20px;
+        }
+        .product-details h1 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .price {
+            font-size: 22px;
+            font-weight: bold;
+            color: #fb641b;
+            margin-bottom: 15px;
+        }
+        .product-details p {
+            font-size: 16px;
+            color: #666;
+            line-height: 1.5;
+        }
+        .quantity {
+            margin-top: 15px;
+        }
+        .quantity label {
+            font-size: 14px;
+            color: #333;
+            margin-right: 10px;
+        }
+        .quantity input {
+            width: 50px;
+            padding: 5px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            text-align: center;
+        }
+        .button-container {
+            margin-top: 20px;
+        }
+        .buy-button {
+            width: 40%;
+            padding: 12px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            text-transform: uppercase;
+            font-weight: bold;
+            border-radius: 4px;
+            background-color: #fb641b;
+            color: #fff;
+        }
+        .buy-button:hover {
+            background-color: #d9531d;
+        }
+     @media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        max-width: 100%;
+        padding: 15px;
+        align-items: center;
+    }
+
+    .image-section {
+        width: 100%;
+        padding: 10px;
+        text-align: center;
+        margin-top: -20px; /* Moves the image up */
+    }
+
+    .image-section img {
+        height: auto;
+        max-height: 350px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .thumbnail-section {
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+        overflow-x: auto;
+        padding: 10px 0;
+        scroll-behavior: smooth;
+    }
+
+    .thumbnail-section img {
+        width: 70px;
+        height: 70px;
+        border-radius: 5px;
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .thumbnail-section img:hover {
+        transform: scale(1.1);
+    }
+
+    .product-details {
+        width: 100%;
+        padding: 20px;
+        text-align: center;
+        box-shadow: none; /* Removed background color and shadow */
+    }
+
+    .product-details h1 {
+        font-size: 22px;
+        font-weight: bold;
+        color: #333;
+    }
+
+    .price {
+        font-size: 20px;
+        font-weight: bold;
+        color: #d32f2f;
+        margin: 10px 0;
+    }
+
+    .product-details p {
+        font-size: 15px;
+        color: #666;
+        line-height: 1.5;
+    }
+
+    .buy-button {
+        display: inline-block;
+        padding: 12px 20px;
+        font-size: 16px;
+        font-weight: bold;
+        background: #ff5722;
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background 0.3s ease-in-out;
+    }
+
+    .buy-button:hover {
+        background: #e64a19;
+    }
+}
+
+
+        
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="image-section">
+        <img id="main-image" src="https://ik.imagekit.io/7de5cntkw/473113476_637142008652630_3615804534381053324_n.jpg?updatedAt=1737971995584" alt="Product Image">
+        <div class="thumbnail-section">
+            <img src="https://ik.imagekit.io/7de5cntkw/473113476_637142008652630_3615804534381053324_n.jpg?updatedAt=1737971995584" onclick="changeImage(this)">
+            <img src="https://ik.imagekit.io/7de5cntkw/472629431_633823252317839_8194454780557077913_n.jpg?updatedAt=1737971995287" onclick="changeImage(this)">
+            <img src="https://ik.imagekit.io/7de5cntkw/473621679_641201434913354_3282783265503591403_n.jpg?updatedAt=1737971995552" onclick="changeImage(this)">
+            
+        </div>
+    </div>
+    <div class="product-details">
+        <h1>Necklaces</h1>
+        <div class="price">₹150.00</div>
+        <p>Handmade necklaces are a perfect blend of artistry and craftsmanship, designed to enhance your style with a unique, personal touch...</p>
+        <div class="quantity">
+            <label for="quantity">Quantity:</label>
+            <input type="number" id="quantity" name="quantity" value="1" min="1">
+        </div>
+        <div class="button-container">
+            <button class="buy-button" onclick="window.location.href='buy-now.html';">Buy Now</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    function changeImage(element) {
+        document.getElementById('main-image').src = element.src;
+    }
+    const quantityInput = document.getElementById('quantity');
+    const priceElement = document.querySelector('.price');
+    const basePrice = 150;
+    quantityInput.addEventListener('input', () => {
+        const quantity = parseInt(quantityInput.value, 10) || 1;
+        priceElement.textContent = `₹${(basePrice * quantity).toFixed(2)}`;
+    });
+</script>
+
+</body>
+</html>

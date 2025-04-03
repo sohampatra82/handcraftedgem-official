@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-commerce Buy Section</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+   <link rel="shortcut icon" href="https://ik.imagekit.io/7de5cntkw/Dark%20Green%20Modern%20Initial%20Logo%20(3)-photoaidcom-cropped.png?updatedAt=1738043221528" type="image/x-icon">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            padding-top: 50px; /* Added more space at the top */
+        }
+
+        .container {
+            display: flex;
+            max-width: 1000px;
+            background-color: #fff;
+            border-radius: 0; /* Removed border radius */
+            overflow: hidden;
+        }
+
+        .image-section {
+            width: 30%;
+            display: grid;
+            grid-template-rows: repeat(3, 1fr);
+            gap: 15px;
+            padding: 20px;
+            border-right: 1px solid #ddd;
+        }
+
+        .image-section img {
+            width: 100%;
+            height: 160px;
+            border-radius: 4px;
+            object-fit: cover;
+        }
+
+        .buy-button {
+            width: 200px;
+            background-color: #FB641B;
+            color: #fff;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-transform: uppercase;
+            margin-top: 15px;
+            align-self: center;
+        }
+
+        .buy-button:hover {
+            background-color: #d9531d;
+        }
+
+        .product-details {
+            width: 60%;
+            padding: 20px;
+            overflow-wrap: break-word; /* Prevents width increase on long text */
+        }
+
+        .product-details h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .product-details .price {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: #FB641B;
+            font-weight: bold;
+        }
+
+        .product-details p {
+            font-size: 16px;
+            margin-bottom: 15px;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        .quantity {
+            margin-bottom: 20px;
+        }
+
+        .quantity label {
+            font-size: 14px;
+            margin-right: 10px;
+            color: #333;
+        }
+
+        .quantity input {
+            width: 50px;
+            padding: 5px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Left Side Image Section -->
+    <div class="image-section">
+        <img src="" alt="Product Image 1">
+        <img src="" alt="Product Image 2">
+        <img src="" alt="Product Image 3">
+      
+    </div>
+
+    <!-- Right Side Product Details Section -->
+    <div class="product-details">
+        <h1>Necklaces</h1>
+        <div class="price">₹150.00</div>
+        <p>Handmade necklaces are a perfect blend of artistry and craftsmanship, designed to enhance your style with a unique, personal touch. Each piece is intricately crafted by skilled artisans, ensuring no two necklaces are exactly alike. Made with high-quality materials such as beads, natural stones, pearls, and metals, these necklaces reflect a mix of tradition and modernity.</p>
+        <div class="quantity">
+            <label for="quantity">Quantity:</label>
+            <input type="number" id="quantity" name="quantity" value="1" min="1">
+        </div>
+          <button class="buy-button" onclick="window.location.href='buy-now.html';">Buy Now</button>
+    </div>
+</div>
+
+<script>
+    const quantityInput = document.getElementById('quantity');
+    const priceElement = document.querySelector('.price');
+    const basePrice = 150; // Base price of the product in INR
+
+    quantityInput.addEventListener('input', () => {
+        const quantity = parseInt(quantityInput.value, 10) || 1;
+        const totalPrice = basePrice * quantity;
+        priceElement.textContent = `₹${totalPrice.toFixed(2)}`;
+    });
+     document.querySelector('.buy-button').addEventListener('click', function() {
+        window.location.href = 'buy-now.html';
+    });
+</script>
+
+
+</body>
+</html>

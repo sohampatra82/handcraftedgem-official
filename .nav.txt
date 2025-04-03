@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    
+    <title>HandCrafted-Gem</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+.upper-body{
+  background-color: #F1F1F0;
+}
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            border-bottom: 1px solid #e5e5e5;
+            position: sticky;
+            top: 0;
+            background-color: #fff;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar .logo {
+            font-size: 2.2rem;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #b1935e;
+            font-family:  Marcellus, Roboto, sans-serif;
+        }
+
+        .navbar ul {
+            display: flex;
+            list-style: none;
+            font-family: Jost, Roboto, sans-serif;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 24px;
+        }
+
+        .navbar ul li {
+            margin-left: 25px;
+            position: relative;
+        }
+
+        .navbar ul li a {
+            text-decoration: none;
+            color: #333;
+            font-size: 1.2rem;
+            font-weight: 500;
+            padding: 5px 10px;
+            transition: all 0.3s ease;
+        }
+
+        .navbar ul li a:hover {
+            color: #b1935e;
+            border-bottom: 2px solid #b1935e;
+        }
+
+        .navbar ul li .dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #fff;
+            border: 1px solid #e5e5e5;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            min-width: 200px;
+            z-index: 1000;
+            border-radius: 4px;
+        }
+
+        .navbar ul li .dropdown a {
+            display: block;
+            padding: 12px;
+            white-space: nowrap;
+            color: #333;
+            font-size: 0.95rem;
+            transition: background 0.3s ease;
+        }
+
+        .navbar ul li .dropdown a:hover {
+            background: #f2f2f2;
+            color: #b1935e;
+        }
+
+        .navbar ul li:hover .dropdown {
+            display: block;
+        }
+
+        .navbar ul li a.active {
+            color: #b1935e;
+            border-bottom: 2px solid #b1935e;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            height: 3px;
+            width: 25px;
+            background-color: #333;
+            margin: 4px 0;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            background: #fff;
+            width: 100%;
+            position: absolute;
+            top: 60px;
+            left: 0;
+            border-top: 1px solid #e5e5e5;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            z-index: 999;
+        }
+
+        .mobile-menu a {
+            padding: 15px;
+            text-decoration: none;
+            color: #333;
+            font-size: 1.2rem;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        .mobile-menu a:hover {
+            background-color: #f2f2f2;
+            color: #b1935e;
+        }
+
+        @media (max-width: 768px) {
+            .navbar ul {
+                display: none;
+            }
+.mobile-menu.active {
+    display: flex;
+}
+            .hamburger {
+                display: flex;
+            }
+
+            .hamburger.active + .mobile-menu {
+                display: flex;
+            }
+        }
+
+        nav {
+  background-color: #333; /* Dark background */
+  color: white; /* White text color */
+  padding: 15px 20px; /* Space inside the navbar */
+  display: flex;
+  justify-content: space-between; /* Space out menu items */
+  align-items: center;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 15px; /* Space between nav links */
+  font-size: 18px; /* Increased font size */
+  transition: color 0.3s ease; /* Smooth hover effect */
+}
+
+nav a:hover {
+  color: #f4a261; /* Highlighted color on hover */
+}
+</style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Marcellus&display=swap"
+    rel="stylesheet">
+</head>
+<body>
+  <div class="upper-body">
+    <nav class="navbar">
+        <div class="logo">HandCrafted-Gem</div>
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul>
+            <li><a href="#" class="active">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li>
+                <a href="#">Products</a>
+                <div class="dropdown">
+                    <a href="#">Necklaces</a>
+                    <a href="#">Bracelets</a>
+                    <a href="#">Earrings</a>
+                    <a href="#">Rings</a>
+                </div>
+            </li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+        <div class="mobile-menu" id="mobile-menu">
+            <a href="#" class="active">Home</a>
+            <a href="#">About</a>
+            <a href="#">Products</a>
+            <a href="#">Contact</a>
+        </div>
+    </nav>
+
+  </div>
+
+
+
+    <script>
+       const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobile-menu');
+
+hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    mobileMenu.classList.toggle('active');
+});
+  window.addEventListener('load', () => {
+    gsap.fromTo("body", { opacity: 0 }, { opacity: 1, duration: 1 });
+  });
+  window.addEventListener('load', () => {
+      document.body.style.opacity = '1';
+    });
+
+    window.addEventListener('scroll', () => {
+    const navbar = document.querySelector('.navbar');
+    if (window.scrollY > 0) {
+        navbar.classList.add('fixed'); // Add fixed class when scrolling down
+    } else {
+        navbar.classList.remove('fixed'); // Remove fixed class when at top
+    }
+});
+let currentIndex = 0;
+const imagesPerPage = 3; // Show 3 images at a time
+const totalImages = 12; // Total 12 images
+const carousel = document.querySelector('.carousel');
+
+function moveSlide(direction) {
+  currentIndex += direction;
+  
+  if (currentIndex < 0) {
+    currentIndex = totalImages - imagesPerPage;
+  } else if (currentIndex >= totalImages - imagesPerPage) {
+    currentIndex = 0;
+  }
+
+  carousel.style.transform = `translateX(-${currentIndex * (365 + 20)}px)`;
+}
+
+// Automatically show the first 3 images
+moveSlide(0);
+
+
+    </script>
+   </body>
+</html>

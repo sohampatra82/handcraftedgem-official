@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <link rel="shortcut icon" href="https://ik.imagekit.io/7de5cntkw/Dark%20Green%20Modern%20Initial%20Logo%20(3)-photoaidcom-cropped.png?updatedAt=1738043221528" type="image/x-icon">
+    <title>HandCrafted-Gem</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+.upper-body{
+  background-color: #F1F1F0;
+}
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            border-bottom: 1px solid #e5e5e5;
+            position: sticky;
+            top: 0;
+            background-color: #fff;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar .logo {
+            font-size: 2.2rem;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #b1935e;
+            font-family:  Marcellus, Roboto, sans-serif;
+        }
+
+        .navbar ul {
+            display: flex;
+            list-style: none;
+            font-family: Jost, Roboto, sans-serif;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 24px;
+        }
+
+        .navbar ul li {
+            margin-left: 25px;
+            position: relative;
+        }
+
+        .navbar ul li a {
+            text-decoration: none;
+            color: #333;
+            font-size: 1.2rem;
+            font-weight: 500;
+            padding: 5px 10px;
+            transition: all 0.3s ease;
+        }
+
+        .navbar ul li a:hover {
+            color: #b1935e;
+            border-bottom: 2px solid #b1935e;
+        }
+
+        .navbar ul li .dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #fff;
+            border: 1px solid #e5e5e5;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            min-width: 200px;
+            z-index: 1000;
+            border-radius: 4px;
+        }
+
+        .navbar ul li .dropdown a {
+            display: block;
+            padding: 12px;
+            white-space: nowrap;
+            color: #333;
+            font-size: 0.95rem;
+            transition: background 0.3s ease;
+        }
+
+        .navbar ul li .dropdown a:hover {
+            background: #f2f2f2;
+            color: #b1935e;
+        }
+
+        .navbar ul li:hover .dropdown {
+            display: block;
+        }
+
+        .navbar ul li a.active {
+            color: #b1935e;
+            border-bottom: 2px solid #b1935e;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            height: 3px;
+            width: 25px;
+            background-color: #333;
+            margin: 4px 0;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            background: #fff;
+            width: 100%;
+            position: absolute;
+            top: 60px;
+            left: 0;
+            border-top: 1px solid #e5e5e5;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            z-index: 999;
+        }
+
+        .mobile-menu a {
+            padding: 15px;
+            text-decoration: none;
+            color: #333;
+            font-size: 1.2rem;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        .mobile-menu a:hover {
+            background-color: #f2f2f2;
+            color: #b1935e;
+        }
+
+        @media (max-width: 768px) {
+            .navbar ul {
+                display: none;
+            }
+.mobile-menu.active {
+    display: flex;
+}
+            .hamburger {
+                display: flex;
+            }
+
+            .hamburger.active + .mobile-menu {
+                display: flex;
+            }
+        }
+
+        nav {
+  background-color: #333; /* Dark background */
+  color: white; /* White text color */
+  padding: 15px 20px; /* Space inside the navbar */
+  display: flex;
+  justify-content: space-between; /* Space out menu items */
+  align-items: center;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 15px; /* Space between nav links */
+  font-size: 18px; /* Increased font size */
+  transition: color 0.3s ease; /* Smooth hover effect */
+}
+
+nav a:hover {
+  color: #f4a261; /* Highlighted color on hover */
+}
+/* General Footer Styles */
+.professional-footer {
+  background-color: #ffffff;
+  color: #000000;
+  padding: 40px 0;
+  font-family: Arial, sans-serif;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-section {
+  width: 22%;
+  padding: 0 15px;
+}
+
+.footer-section h3 {
+  font-family: Jost, Roboto, sans-serif;
+  font-size: 28px ;
+  font-weight: 400;
+  line-height:  27px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: rgb(0, 0, 0)
+}
+
+.footer-section p {
+  font-family: Jost, Roboto, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  color: rgba(0, 0, 0, 0.8);  /* Slightly lighter text for readability */
+}
+.email:hover{
+      .email {
+      display: inline-block;
+      position: relative;
+      font-size: 18px;
+      font-weight: bold;
+      text-decoration: none;
+      color: #000;
+    }
+
+    .email::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background-color: #000;
+      transition: width 0.3s ease;
+    }
+
+    .email:hover::after {
+      width: 100%;
+    }
+
+}
+.footer-section ul {
+  padding-left: 0;
+  list-style-type: none;
+}
+
+.footer-section ul li {
+  margin-bottom: 10px;
+}
+
+/* Links Styling */
+.footer-section a {
+  color: #000000;
+  text-decoration: none;
+  position: relative;
+  transition: color 0.3s, background-color 0.3s;
+}
+
+.footer-section a:hover {
+  color: #333333;                   /* Darker color on hover for text */
+}
+
+/* Underline Styling on Hover */
+.footer-section a::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;                  /* Position the underline just below the text */
+  width: 100%;
+  height: 1px;
+  background-color: #333;        /* Underline color */
+  transform: scaleX(0);           /* Initially set width to 0 */
+  transform-origin: bottom right; /* Start from the right side */
+  transition: transform 0.4s ease-in-out; /* Smooth transition */
+}
+
+.footer-section a:hover::before {
+  transform: scaleX(1);           /* Expand underline from left to right */
+  transform-origin: bottom left;  /* Move underline from left */
+}
+
+/* Responsive Design for Small Screens */
+@media screen and (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-section {
+    width: 100%;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .footer-section h3 {
+    font-family: serif;
+    font-size: 18px;
+  }
+
+  .footer-section p {
+    font-size: 13px;
+  }
+
+  .footer-section a {
+    font-size: 16px;
+  }
+}
+
+
+  /* Container styling */
+  .highlighted-products {
+    padding: 40px;
+    background-color: #f4f4f4;
+  }
+
+  .product-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+  }
+
+  /* Product Card styling */
+  .product-card {
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    width: 320px;
+    height: 550px; /* Adjusted to accommodate larger image height */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .product-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Image styling */
+  .product-card img {
+    width: 100%;
+    height: 300px; /* Increased the image height */
+    object-fit: cover; /* Ensures the image fills the area proportionally */
+    border-bottom: 1px solid #e0e0e0;
+  }
+
+  /* Content styling */
+  .product-details {
+    padding: 20px;
+    text-align: center;
+    flex-grow: 1;
+  }
+
+  .product-details h3 {
+    font-size: 22px;
+    font-weight: bold;
+    color: #333;
+    margin: 10px 0;
+  }
+
+  .product-details p {
+    font-size: 16px;
+    color: #666;
+    margin: 10px 0 20px;
+    line-height: 1.5;
+  }
+
+  /* Button styling */
+  .purchase-button {
+    display: inline-block;
+    width: 90%;
+    padding: 12px 0;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #007bff;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+
+  .purchase-button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .product-card {
+      width: 100%;
+    }
+
+    .purchase-button {
+      width: 80%;
+    }
+  }
+  .section {
+            padding: 40px;
+            margin: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .section h2 {
+            font-family: 'Marcellus', serif;
+            font-size: 37px;
+            text-align: left;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+       .product {
+        
+    width: 30%;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.product img {
+    width: 100%;
+    height: 430px; /* Set a fixed height */
+    object-fit: cover; /* Ensures the image fills the container while maintaining its aspect ratio */
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.product img:hover {
+    transform: scale(1.05);
+}
+
+        .buy-now-btn {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 45px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            text-align: center;
+        }
+        .buy-now-btn:hover {
+            background-color: #45a049;
+        }
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+    .product {
+        width: 48%; /* Two columns on medium screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .product {
+        width: 100%; /* One column on small screens */
+    }
+    .section {
+        padding: 20px; /* Reduce padding on smaller screens */
+        margin: 10px;
+    }
+    .section h2 {
+        font-size: 24px; /* Slightly smaller heading */
+    }
+}
+
+/* Optional: Very small screens (e.g., some phones) */
+@media (max-width: 480px) {
+    .section h2 {
+        font-size: 30px;
+    }
+}
+
+.main h1 {
+  padding-top: 30px;
+  text-align: center;
+  font-size: 36px; /* Larger heading */
+  color: #333; /* Dark text */
+  margin-bottom: 20px; /* Space below the heading */
+  font-size: 72px;
+  font-weight: 400;
+  line-height: 89.28px;
+  font-family: Marcellus, Roboto, sans-serif;
+}
+</style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Marcellus&display=swap"
+    rel="stylesheet">
+</head>
+<body>
+  <div class="upper-body">
+    <nav class="navbar">
+        <div class="logo">HandCrafted-Gem</div>
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul>
+            <li><a href="handcrafted-gem" class="active">Home</a></li>
+            <li><a href="about">About</a></li>
+            <li>
+                <a href="product">Products</a>
+                
+            </li>
+            <li><a href="contact">Contact</a></li>
+        </ul>
+        <div class="mobile-menu" id="mobile-menu">
+            <a href="handcrafted-gem" class="active">Home</a>
+            <a href="about">About</a>
+            <a href="product">Products</a>
+            <a href="contact">Contact</a>
+        </div>
+    </nav>
+
+  </div>
+<br>
+  <div class="main">
+    <main>
+        <h1>Our Products</h1>
+    </main>
+    </div>
+
+ <!-- Necklaces Section -->
+    <div class="section">
+        <h2>Necklaces</h2>
+        <div class="product">
+            <a href="product10"><img src="https://ik.imagekit.io/7de5cntkw/442405570_484851213881711_239625262563756558_n.jpg?updatedAt=1737973313081" alt="Necklace 1"></a>
+            <a href="product10" class="buy-now-btn">Buy Now</a>
+        </div>
+        <div class="product">
+            <a href="product11"><img src="https://ik.imagekit.io/7de5cntkw/448927954_504889735211192_3171558789802815323_n.jpg?updatedAt=1737973081082" alt="Necklace 2"></a>
+            <a href="product11" class="buy-now-btn">Buy Now</a>
+        </div>
+        <div class="product">
+            <a href="product12"><img src="https://ik.imagekit.io/7de5cntkw/455309554_534654795568019_1588937062197079266_n.jpg?updatedAt=1737973081921" alt="Necklace 3"></a>
+            <a href="product12" class="buy-now-btn">Buy Now</a>
+        </div>
+        <div class="product">
+            <a href="product13"><img src="https://ik.imagekit.io/7de5cntkw/457587038_544329171267248_4276739530869482551_n.jpg?updatedAt=1737972550716" alt="Necklace 4"></a>
+            <a href="product13" class="buy-now-btn">Buy Now</a>
+        </div>
+        <div class="product">
+            <a href="product14"><img src="https://ik.imagekit.io/7de5cntkw/432049473_445678004465699_6514787743740089439_n.jpg?updatedAt=1737974386175" alt="Necklace 5"></a>
+            <a href="product14" class="buy-now-btn">Buy Now</a>
+        </div>
+        <div class="product">
+            <a href="product15"><img src="https://ik.imagekit.io/7de5cntkw/449518391_508922738141225_1279457611379057958_n%20(1).jpg?updatedAt=1737973994329" alt="Necklace 6"></a>
+            <a href="product15" class="buy-now-btn">Buy Now</a>
+        </div>
+    </div>
+
+    <!-- Earring Section -->
+    <div class="section">
+        <h2>Earrings</h2>
+        <div class="product">
+            <a href="buy-now.html"><img src="https://ik.imagekit.io/7de5cntkw/466993541_598450972521734_2416116645773351890_n.jpg?updatedAt=1737973390841" alt="Earring 1"></a>
+            <a href="buy-now.html" class="buy-now-btn">Buy Now</a>
+        </div>
+        <div class="product">
+            <a href="buy-now.html"><img src="https://ik.imagekit.io/7de5cntkw/454209749_529820119384820_2123600893442293436_n.jpg?updatedAt=1737973081416" alt="Earring 2"></a>
+            <a href="buy-now.html" class="buy-now-btn">Buy Now</a>
+        </div>
+        <div class="product">
+            <a href="buy-now.html"><img src="https://ik.imagekit.io/7de5cntkw/455950440_536479428718889_2066237123766951610_n.jpg?updatedAt=1737973081747" alt="Earring 3"></a>
+            <a href="buy-now.html" class="buy-now-btn">Buy Now</a>
+        </div>
+        <div class="product">
+            <a href="buy-now.html"><img src="https://ik.imagekit.io/7de5cntkw/461861613_567096352323863_2457993218072020087_n.jpg?updatedAt=1737972550587" alt="Earring 4"></a>
+            <a href="buy-now.html" class="buy-now-btn">Buy Now</a>
+        </div>
+        <div class="product">
+            <a href="buy-now.html"><img src="https://ik.imagekit.io/7de5cntkw/459734180_554419216924910_6685166035841084264_n.jpg?updatedAt=1737972550116" alt="Earring 5"></a>
+            <a href="buy-now.html" class="buy-now-btn">Buy Now</a>
+        </div>
+        <div class="product">
+            <a href="buy-now.html"><img src="https://ik.imagekit.io/7de5cntkw/473113476_637142008652630_3615804534381053324_n.jpg?updatedAt=1737971995584" alt="Earring 6"></a>
+            <a href="buy-now.html" class="buy-now-btn">Buy Now</a>
+        </div>
+    </div>
+
+    <!-- Bangles Section -->
+    <div class="section">
+        <h2>Bangles</h2>
+        <div class="product">
+            <a href="buy-now.html"><img src="https://ik.imagekit.io/7de5cntkw/452283265_520643566969142_1476591762484089183_n.jpg?updatedAt=1738347414613" alt="Bangle 1"></a>
+            <a href="buy-now.html" class="buy-now-btn">Buy Now</a>
+        </div>
+        <div class="product">
+            <a href="buy-now.html"><img src="https://ik.imagekit.io/7de5cntkw/461089484_561473499552815_3265079808160017543_n.jpg?updatedAt=1738347414427" alt="Bangle 2"></a>
+            <a href="buy-now.html" class="buy-now-btn">Buy Now</a>
+        </div>
+        <div class="product">
+            <a href="buy-now.html"><img src="https://ik.imagekit.io/7de5cntkw/450862057_516552660711566_5384422922300469943_n.jpg?updatedAt=1738347414504" alt="Bangle 3"></a>
+            <a href="buy-now.html" class="buy-now-btn">Buy Now</a>
+        </div>
+        <div class="product">
+            <a href="buy-now.html"><img src="https://ik.imagekit.io/7de5cntkw/461856800_566766569023508_6794628611532759678_n.jpg?updatedAt=1738347414516" alt="Bangle 4"></a>
+            <a href="buy-now.html" class="buy-now-btn">Buy Now</a>
+        </div>
+        <div class="product">
+            <a href="buy-now.html"><img src="https://ik.imagekit.io/7de5cntkw/459156596_551697647197067_962832514188097252_n.jpg?updatedAt=1738347414509" alt="Bangle 5"></a>
+            <a href="buy-now.html" class="buy-now-btn">Buy Now</a>
+        </div>
+        <div class="product">
+            <a href="buy-now.html"><img src="https://ik.imagekit.io/7de5cntkw/428704487_433093535724146_1569583000074142072_n.jpg?updatedAt=1738347414432" alt="Bangle 6"></a>
+            <a href="buy-now.html" class="buy-now-btn">Buy Now</a>
+        </div>
+    </div>
+
+    <!-- Ring Section -->
+    <div class="section">
+        <h2>Jewellery Set</h2>
+        <div class="product">
+            <a href="buy-now.html"><img src="https://ik.imagekit.io/7de5cntkw/475751528_650927420607422_8273721156197131695_n.jpg?updatedAt=1738348133702" alt="Ring 1"></a>
+            <a href="buy-now.html" class="buy-now-btn">Buy Now</a>
+        </div>
+        <div class="product">
+            <a href="buy-now.html"><img src="https://ik.imagekit.io/7de5cntkw/474164206_641809984852499_7040765325852663294_n.jpg?updatedAt=1737973081733" alt="Ring 1"></a>
+            <a href="buy-now.html" class="buy-now-btn">Buy Now</a>
+        </div>
+        <div class="product">
+            <a href="buy-now.html"><img src="https://ik.imagekit.io/7de5cntkw/458322547_547860944247404_3200555914807768369_n.jpg?updatedAt=1737972550664" alt="Ring 2"></a>
+            <a href="buy-now.html" class="buy-now-btn">Buy Now</a>
+        </div>
+        <div class="product">
+            <a href="buy-now.html"><img src="https://ik.imagekit.io/7de5cntkw/456386494_540208491679316_6655853283916238062_n.jpg?updatedAt=1737972550711" alt="Ring 3"></a>
+            <a href="buy-now.html" class="buy-now-btn">Buy Now</a>
+        </div>
+        <div class="product">
+            <a href="buy-now.html"><img src="https://ik.imagekit.io/7de5cntkw/460470297_557690133264485_1234643346451861737_n.jpg?updatedAt=1737972550291" alt="Ring 4"></a>
+            <a href="buy-now.html" class="buy-now-btn">Buy Now</a>
+        </div>
+        <div class="product">
+            <a href="buy-now.html"><img src="https://ik.imagekit.io/7de5cntkw/472079710_628554132844751_6789091843356669491_n.jpg?updatedAt=1737972130172 alt="Ring 5"></a>
+            <a href="buy-now.html" class="buy-now-btn">Buy Now</a>
+        </div>
+        <div class="product">
+            <a href="buy-now.html"><img src="https://ik.imagekit.io/7de5cntkw/472629431_633823252317839_8194454780557077913_n.jpg?updatedAt=1737971995287" alt="Ring 6"></a>
+            <a href="buy-now.html" class="buy-now-btn">Buy Now</a>
+        </div>
+
+        
+
+  <div class="product">
+            <a href="buy-now.html"><img src="https://ik.imagekit.io/7de5cntkw/463911499_581295827570582_3954701049890745289_n.jpg?updatedAt=1737972553543" alt="Ring 6"></a>
+            <a href="buy-now.html" class="buy-now-btn">Buy Now</a>
+        </div>
+  <div class="product">
+            <a href="buy-now.html"><img src="https://ik.imagekit.io/7de5cntkw/460951745_560221473011351_7440080477725621846_n.jpg?updatedAt=1737972550352" alt="Ring 6"></a>
+            <a href="buy-now.html" class="buy-now-btn">Buy Now</a>
+        </div>
+  <div class="product">
+            <a href="buy-now.html"><img src="https://ik.imagekit.io/7de5cntkw/468731466_607285068304991_217644719309239790_n.jpg?updatedAt=1737972130191" alt="Ring 6"></a>
+            <a href="buy-now.html" class="buy-now-btn">Buy Now</a>
+        </div>
+  <div class="product">
+            <a href="buy-now.html"><img src="https://ik.imagekit.io/7de5cntkw/462366458_572257838474381_4667413382190932947_n.jpg?updatedAt=1738348133796" alt="Ring 6"></a>
+            <a href="buy-now.html" class="buy-now-btn">Buy Now</a>
+        </div>
+  <div class="product">
+            <a href="buy-now.html"><img src="https://ik.imagekit.io/7de5cntkw/465894852_593337666366398_2315778519895962550_n.jpg?updatedAt=1738348287216" alt="Ring 6"></a>
+            <a href="buy-now.html" class="buy-now-btn">Buy Now</a>
+        </div>
+  <div class="product">
+            <a href="buy-now.html"><img src="https://ik.imagekit.io/7de5cntkw/471320402_624530306580467_2130617976982851465_n.jpg?updatedAt=1738348287522" alt="Ring 6"></a>
+            <a href="buy-now.html" class="buy-now-btn">Buy Now</a>
+        </div>
+  <div class="product">
+            <a href="buy-now.html"><img src="https://ik.imagekit.io/7de5cntkw/458378983_548465660853599_8440793589609089507_n.jpg?updatedAt=1738348287470" alt="Ring 6"></a>
+            <a href="buy-now.html" class="buy-now-btn">Buy Now</a>
+        </div>
+  <div class="product">
+            <a href="buy-now.html"><img src="https://ik.imagekit.io/7de5cntkw/470086911_616432127390285_92133208917080054_n.jpg?updatedAt=1737972130157" alt="Ring 6"></a>
+            <a href="buy-now.html" class="buy-now-btn">Buy Now</a>
+        </div>
+</div>
+
+    <!-- Punjabi Section -->
+    
+
+
+
+
+  
+<footer class="professional-footer">
+  <div class="footer-container">
+    <!-- Section 1: Company Name -->
+    <div class="footer-section company-info">
+      <h3 class="comp-name">HandCrafted-Gem</h3>
+      <p>Gravida massa volutpat aenean odio. Amet, turpis erat nullam fringilla elementum diam in. Nisi, purus vitae, ultrices nunc. Sit ac sit suscipit hendrerit.</p>
+    </div>
+
+    <!-- Section 2: Quick Links -->
+    <div class="footer-section quick-links">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="handcrafted-gem">Home</a></li>
+        <li><a href="about">About</a></li>
+        <li><a href="product">Product</a></li>
+        <li><a href="contact">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- Section 3: Help and Info -->
+    <div class="footer-section help-info">
+      <h3>Help & Info</h3>
+      <ul>
+        <li><a href="#">Track Your Order</a></li>
+        <li><a href="#">Returns + Exchanges</a></li>
+        <li><a href="#">Shipping + Delivery</a></li>
+        <li><a href="#">Contact Us</a></li>
+        <li><a href="#">Find Us Easy</a></li>
+        <li><a href="#">FAQs</a></li>
+      </ul>
+    </div>
+
+    <!-- Section 4: Contact Us -->
+    <div class="footer-section contact-us">
+      <h3>Contact Us</h3>
+      <p>Do you have any questions or suggestions? <a href="mailto:handcraftedgemofficial@gmail.com">handcraftedgemofficial@gmail.com</a></p>
+      <p>Do you need support? Give us a call. <a href="tel:+43720115278">+91 00000 00000</a></p>
+    </div>
+  </div>
+</footer>
+
+    <script>
+       const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobile-menu');
+
+hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    mobileMenu.classList.toggle('active');
+});
+  window.addEventListener('load', () => {
+    gsap.fromTo("body", { opacity: 0 }, { opacity: 1, duration: 1 });
+  });
+  window.addEventListener('load', () => {
+      document.body.style.opacity = '1';
+    });
+
+    window.addEventListener('scroll', () => {
+    const navbar = document.querySelector('.navbar');
+    if (window.scrollY > 0) {
+        navbar.classList.add('fixed'); // Add fixed class when scrolling down
+    } else {
+        navbar.classList.remove('fixed'); // Remove fixed class when at top
+    }
+});
+let currentIndex = 0;
+const imagesPerPage = 3; // Show 3 images at a time
+const totalImages = 12; // Total 12 images
+const carousel = document.querySelector('.carousel');
+
+function moveSlide(direction) {
+  currentIndex += direction;
+  
+  if (currentIndex < 0) {
+    currentIndex = totalImages - imagesPerPage;
+  } else if (currentIndex >= totalImages - imagesPerPage) {
+    currentIndex = 0;
+  }
+
+  carousel.style.transform = `translateX(-${currentIndex * (365 + 20)}px)`;
+}
+
+// Automatically show the first 3 images
+moveSlide(0);
+
+
+    </script>
+   </body>
+</html>

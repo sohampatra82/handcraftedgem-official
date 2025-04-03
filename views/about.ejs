@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+     <link rel="shortcut icon" href="https://ik.imagekit.io/7de5cntkw/Dark%20Green%20Modern%20Initial%20Logo%20(3)-photoaidcom-cropped.png?updatedAt=1738043221528" type="image/x-icon">
+    <title>HandCrafted-Gem</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+.upper-body{
+  background-color: #F1F1F0;
+}
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            border-bottom: 1px solid #e5e5e5;
+            position: sticky;
+            top: 0;
+            background-color: #fff;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar .logo {
+            font-size: 2.2rem;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #b1935e;
+            font-family:  Marcellus, Roboto, sans-serif;
+        }
+
+        .navbar ul {
+            display: flex;
+            list-style: none;
+            font-family: Jost, Roboto, sans-serif;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 24px;
+        }
+
+        .navbar ul li {
+            margin-left: 25px;
+            position: relative;
+        }
+
+        .navbar ul li a {
+            text-decoration: none;
+            color: #333;
+            font-size: 1.2rem;
+            font-weight: 500;
+            padding: 5px 10px;
+            transition: all 0.3s ease;
+        }
+
+        .navbar ul li a:hover {
+            color: #b1935e;
+            border-bottom: 2px solid #b1935e;
+        }
+
+        .navbar ul li .dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #fff;
+            border: 1px solid #e5e5e5;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            min-width: 200px;
+            z-index: 1000;
+            border-radius: 4px;
+        }
+
+        .navbar ul li .dropdown a {
+            display: block;
+            padding: 12px;
+            white-space: nowrap;
+            color: #333;
+            font-size: 0.95rem;
+            transition: background 0.3s ease;
+        }
+
+        .navbar ul li .dropdown a:hover {
+            background: #f2f2f2;
+            color: #b1935e;
+        }
+
+        .navbar ul li:hover .dropdown {
+            display: block;
+        }
+
+        .navbar ul li a.active {
+            color: #b1935e;
+            border-bottom: 2px solid #b1935e;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            height: 3px;
+            width: 25px;
+            background-color: #333;
+            margin: 4px 0;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            background: #fff;
+            width: 100%;
+            position: absolute;
+            top: 60px;
+            left: 0;
+            border-top: 1px solid #e5e5e5;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            z-index: 999;
+        }
+
+        .mobile-menu a {
+            padding: 15px;
+            text-decoration: none;
+            color: #333;
+            font-size: 1.2rem;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        .mobile-menu a:hover {
+            background-color: #f2f2f2;
+            color: #b1935e;
+        }
+
+        @media (max-width: 768px) {
+            .navbar ul {
+                display: none;
+            }
+.mobile-menu.active {
+    display: flex;
+}
+            .hamburger {
+                display: flex;
+            }
+
+            .hamburger.active + .mobile-menu {
+                display: flex;
+            }
+        }
+
+        nav {
+  background-color: #333; /* Dark background */
+  color: white; /* White text color */
+  padding: 15px 20px; /* Space inside the navbar */
+  display: flex;
+  justify-content: space-between; /* Space out menu items */
+  align-items: center;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 15px; /* Space between nav links */
+  font-size: 18px; /* Increased font size */
+  transition: color 0.3s ease; /* Smooth hover effect */
+}
+
+nav a:hover {
+  color: #f4a261; /* Highlighted color on hover */
+}
+/* General Footer Styles */
+.professional-footer {
+  background-color: #ffffff;
+  color: #000000;
+  padding: 40px 0;
+  font-family: Arial, sans-serif;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-section {
+  width: 22%;
+  padding: 0 15px;
+}
+
+.footer-section h3 {
+  font-family: Jost, Roboto, sans-serif;
+  font-size: 28px ;
+  font-weight: 400;
+  line-height:  27px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: rgb(0, 0, 0)
+}
+
+.footer-section p {
+  font-family: Jost, Roboto, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  color: rgba(0, 0, 0, 0.8);  /* Slightly lighter text for readability */
+}
+.email:hover{
+      .email {
+      display: inline-block;
+      position: relative;
+      font-size: 18px;
+      font-weight: bold;
+      text-decoration: none;
+      color: #000;
+    }
+
+    .email::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background-color: #000;
+      transition: width 0.3s ease;
+    }
+
+    .email:hover::after {
+      width: 100%;
+    }
+
+}
+.footer-section ul {
+  padding-left: 0;
+  list-style-type: none;
+}
+
+.footer-section ul li {
+  margin-bottom: 10px;
+}
+
+/* Links Styling */
+.footer-section a {
+  color: #000000;
+  text-decoration: none;
+  position: relative;
+  transition: color 0.3s, background-color 0.3s;
+}
+
+.footer-section a:hover {
+  color: #333333;                   /* Darker color on hover for text */
+}
+
+/* Underline Styling on Hover */
+.footer-section a::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;                  /* Position the underline just below the text */
+  width: 100%;
+  height: 1px;
+  background-color: #333;        /* Underline color */
+  transform: scaleX(0);           /* Initially set width to 0 */
+  transform-origin: bottom right; /* Start from the right side */
+  transition: transform 0.4s ease-in-out; /* Smooth transition */
+}
+
+.footer-section a:hover::before {
+  transform: scaleX(1);           /* Expand underline from left to right */
+  transform-origin: bottom left;  /* Move underline from left */
+}
+
+/* Responsive Design for Small Screens */
+@media screen and (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-section {
+    width: 100%;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .footer-section h3 {
+    font-family: serif;
+    font-size: 18px;
+  }
+
+  .footer-section p {
+    font-size: 13px;
+  }
+
+  .footer-section a {
+    font-size: 16px;
+  }
+}
+
+
+  /* Container styling */
+  .highlighted-products {
+    padding: 40px;
+    background-color: #f4f4f4;
+  }
+
+  .product-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+  }
+
+  /* Product Card styling */
+  .product-card {
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    width: 320px;
+    height: 550px; /* Adjusted to accommodate larger image height */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .product-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Image styling */
+  .product-card img {
+    width: 100%;
+    height: 300px; /* Increased the image height */
+    object-fit: cover; /* Ensures the image fills the area proportionally */
+    border-bottom: 1px solid #e0e0e0;
+  }
+
+  /* Content styling */
+  .product-details {
+    padding: 20px;
+    text-align: center;
+    flex-grow: 1;
+  }
+
+  .product-details h3 {
+    font-size: 22px;
+    font-weight: bold;
+    color: #333;
+    margin: 10px 0;
+  }
+
+  .product-details p {
+    font-size: 16px;
+    color: #666;
+    margin: 10px 0 20px;
+    line-height: 1.5;
+  }
+
+  /* Button styling */
+  .purchase-button {
+    display: inline-block;
+    width: 90%;
+    padding: 12px 0;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #007bff;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+
+  .purchase-button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .product-card {
+      width: 100%;
+    }
+
+    .purchase-button {
+      width: 80%;
+    }
+  }
+
+   .about-us {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 50px;
+            background-color: #f9f9f9;
+        }
+
+        .about-us .text {
+            flex: 1;
+            padding: 20px;
+        }
+
+        .about-us .text h1 {
+
+          font-family: Marcellus, Roboto, sans-serif;
+            font-size: 72px;
+            font-weight: 500;
+            color: #333;
+           line-height: 89.28px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-us .text h1 span {
+            display: inline-block;
+            position: relative;
+            animation: slide-in 2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+        }
+
+        @keyframes slide-in {
+            from {
+                left: -100%;
+            }
+            to {
+                left: 0;
+            }
+        }
+
+        .about-us .text p {
+          font-family: Jost, Roboto, sans-serif;
+            font-size: 1.1em;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        .about-us .image {
+            flex: 1;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .about-us .image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 3px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+         /* Mobile Styles */
+        @media (max-width: 768px) {
+            .about-us {
+                flex-direction: column;
+                padding: 20px;
+            }
+
+            .about-us .text h1 {
+                font-size: 48px;
+                line-height: 58px;
+            }
+
+            .about-us .text p {
+                font-size: 1em;
+                line-height: 1.6;
+            }
+
+            .about-us .image {
+                padding: 10px;
+            }
+
+            .about-us .image img {
+                max-width: 90%;
+            }
+        }
+        .our_mission {
+            padding: 60px 30px;
+            background: linear-gradient(135deg, #ffffff, #f3f3f3);
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .our_mission .text {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            font-family: Marcellus, Roboto, sans-serif;
+            color: #333;
+            animation: slide-fade-in 2s ease-in-out;
+        }
+
+        .our_mission .text h2 {
+            font-size: 48px;
+            margin-bottom: 25px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            color: #2c3e50;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        .our_mission .text h2::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background-color: #e74c3c;
+            border-radius: 5px;
+        }
+
+        .our_mission .text p {
+            font-size: 1.2em;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            color: #555;
+            opacity: 0;
+            animation: fade-in-up 1.5s ease-in-out forwards;
+        }
+
+        .our_mission .text p:nth-child(2) {
+            animation-delay: 0.5s;
+        }
+
+        .our_mission .text p:nth-child(3) {
+            animation-delay: 0.7s;
+        }
+
+        .our_mission .text p:nth-child(4) {
+            animation-delay: 0.9s;
+        }
+
+        @keyframes slide-fade-in {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fade-in-up {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .our_mission {
+                padding: 40px 20px;
+            }
+
+            .our_mission .text h2 {
+                font-size: 36px;
+            }
+
+            .our_mission .text p {
+                font-size: 1em;
+            }
+        }
+/* Parent Container */
+.why-choose-us {
+  
+  position: relative;
+  width: 100%;
+  height: 100vh; /* Full viewport height */
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Video Background */
+.video-content {
+  
+  opacity: 3.5;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.video-content video {
+  
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw; /* Full viewport width */
+  height: 95vh; /* Full viewport height */
+  object-fit: cover; /* Ensure the video covers the entire viewport without distortion */
+}
+
+/* Text Content */
+.text-content {
+   
+  position: relative;
+  display: flex;
+  justify-content: space-between; /* Space between the sections */
+  align-items: stretch; /* Stretch sections to equal height */
+  z-index: 2;
+  width: 100%; /* Adjust width to fit content within the viewport */
+  max-width: 12000px;
+  text-align: center;
+  color: #f8f8f8; /* Light text color for contrast with the dark video */
+}
+
+/* Section Styling */
+.section {
+ 
+  height: 100vh;
+  flex: 1; /* Make each section take equal space */
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 10px; /* Add spacing between sections */
+}
+
+.section h3 {
+  font-family: Urbanist, sans-serif;
+  font-size: 35px;
+  margin-bottom: 10px;
+  font-weight: 800;
+  line-height: 28px;
+  text-align: center; /* Align all h3 tags text */
+}
+
+.section p {
+  font-weight: 500;
+  font-family: Urbanist, sans-serif;
+  font-size: 25px;
+  font-weight: 600;
+
+  line-height: 28px;
+  color: rgb(204, 255, 187); /* Light text color for readability */
+  margin: 10px 0;
+}
+
+/* Mobile Responsive Design */
+@media (max-width: 768px) {
+  .text-content {
+    flex-direction: column; /* Stack sections vertically */
+    width: 95%; /* Adjust width for smaller screens */
+  }
+
+  .section {
+    margin: 10px 0; /* Add spacing between stacked sections */
+  }
+
+  .section h3 {
+    font-size: 20px; /* Adjust font size for mobile */
+  }
+
+  .section p {
+    font-size: 16px; /* Adjust font size for mobile */
+  }
+}
+
+        
+</style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Marcellus&display=swap"
+    rel="stylesheet">
+</head>
+<body>
+  <div class="upper-body">
+    <nav class="navbar">
+        <div class="logo">HandCrafted-Gem</div>
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul>
+            <li><a href="handcrafted-gem" class="active">Home</a></li>
+            <li><a href="about">About</a></li>
+            <li>
+                <a href="product">Products</a>
+                <div class="dropdown">
+                    <a href="#">Necklaces</a>
+                    <a href="#">Bracelets</a>
+                    <a href="#">Earrings</a>
+                    <a href="#">Rings</a>
+                </div>
+            </li>
+            <li><a href="contact">Contact</a></li>
+        </ul>
+        <div class="mobile-menu" id="mobile-menu">
+            <a href="handcrafted-gem" class="active">Home</a>
+            <a href="about">About</a>
+            <a href="product">Products</a>
+            <a href="contact">Contact</a>
+        </div>
+    </nav>
+
+  </div>
+
+<div class="about-us">
+    <div class="text">
+        <h1><span>HandCrafted Gem</span></h1><br><br>
+        <p>Welcome to our stor Handcrafted gem, where artistry meets sophistication. We are proud to offer a stunning collection of handcrafted jewelry that celebrates individuality and timeless beauty. Our pieces are meticulously designed, combining traditional craftsmanship with modern elegance to create jewelry that speaks to your unique sense of style. From eye-catching earrings and elegant necklaces to sophisticated bangles and statement pieces, every creation is crafted with precision and passion to elevate your every moment.</p>
+    </div>
+    <div class="image">
+        <img src="https://i0.wp.com/mkyalaventures.com/wp-content/uploads/2024/05/iStock-1412652082-1.jpg?resize=2048%2C1366&ssl=1" alt="Handcrafted Jewelry">
+    </div>
+</div>
+
+<div class="our_mission">
+    <div class="text">
+        <h2>Our Mission</h2>
+        <p>At our shop handcrafted-gem, our mission is to deliver exquisite jewelry that merges classic techniques with contemporary trends, ensuring each piece is a true expression of creativity and craftsmanship. We are dedicated to providing:</p>
+        <p><strong>Unmatched Quality:</strong> Our jewelry is crafted with the utmost care, using high-quality materials to ensure durability and a lasting shine.</p>
+        <p><strong>Accessible Luxury:</strong> We believe in offering beautiful, high-end designs at affordable prices, making luxury jewelry accessible to all.</p>
+        <p><strong>Customer-Centric Service:</strong> Your satisfaction is our priority. From a seamless online shopping experience to reliable and prompt delivery, we aim to exceed your expectations.</p>
+    </div>
+</div>
+
+<div class="why-choose-us">
+  <div class="video-content">
+    <video autoplay muted loop>
+      <source src="https://videos.pexels.com/video-files/6994619/6994619-uhd_2560_1440_30fps.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+  <div class="text-content">
+    <div class="section">
+      <h3>Crafted with Care</h3>
+      <p>Every piece is handmade by <br> skilled artisans, ensuring a <br> unique and personal touch in <br> every design.</p>
+    </div>
+    <div class="section">
+      <h3>Diverse Styles</h3>
+      <p>Whether you seek the charm <br> of tradition or the <br> allure of modernity, our <br> wide range of designs caters <br> to every taste and occasion.</p>
+    </div>
+    <div class="section">
+      <h3 >Sustainable Commitment</h3>
+      <p>We are dedicated to <br> environmentally conscious <br> practices, from responsibly <br>sourcing materials to reducing  <br> waste in our production processes.</p>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+  <br><br>
+<footer class="professional-footer">
+  <div class="footer-container">
+    <!-- Section 1: Company Name -->
+    <div class="footer-section company-info">
+      <h3 class="comp-name">HandCrafted-Gem</h3>
+      <p>Gravida massa volutpat aenean odio. Amet, turpis erat nullam fringilla elementum diam in. Nisi, purus vitae, ultrices nunc. Sit ac sit suscipit hendrerit.</p>
+    </div>
+
+    <!-- Section 2: Quick Links -->
+    <div class="footer-section quick-links">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="handcrafted-gem">Home</a></li>
+        <li><a href="about">About</a></li>
+        <li><a href="product">Product</a></li>
+        <li><a href="contact">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- Section 3: Help and Info -->
+    <div class="footer-section help-info">
+      <h3>Help & Info</h3>
+      <ul>
+        <li><a href="#">Track Your Order</a></li>
+        <li><a href="#">Returns + Exchanges</a></li>
+        <li><a href="#">Shipping + Delivery</a></li>
+        <li><a href="#">Contact Us</a></li>
+        <li><a href="#">Find Us Easy</a></li>
+        <li><a href="#">FAQs</a></li>
+      </ul>
+    </div>
+
+    <!-- Section 4: Contact Us -->
+    <div class="footer-section contact-us">
+      <h3>Contact Us</h3>
+      <p>Do you have any questions or suggestions? <a href="mailto:handcraftedgemofficial@gmail.com">handcraftedgemofficial@gmail.com</a></p>
+      <p>Do you need support? Give us a call. <a href="tel:+43720115278">+91 00000 00000</a></p>
+    </div>
+  </div>
+</footer>
+
+    <script>
+       const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobile-menu');
+
+hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    mobileMenu.classList.toggle('active');
+});
+  window.addEventListener('load', () => {
+    gsap.fromTo("body", { opacity: 0 }, { opacity: 1, duration: 1 });
+  });
+  window.addEventListener('load', () => {
+      document.body.style.opacity = '1';
+    });
+
+    window.addEventListener('scroll', () => {
+    const navbar = document.querySelector('.navbar');
+    if (window.scrollY > 0) {
+        navbar.classList.add('fixed'); // Add fixed class when scrolling down
+    } else {
+        navbar.classList.remove('fixed'); // Remove fixed class when at top
+    }
+});
+let currentIndex = 0;
+const imagesPerPage = 3; // Show 3 images at a time
+const totalImages = 12; // Total 12 images
+const carousel = document.querySelector('.carousel');
+
+function moveSlide(direction) {
+  currentIndex += direction;
+  
+  if (currentIndex < 0) {
+    currentIndex = totalImages - imagesPerPage;
+  } else if (currentIndex >= totalImages - imagesPerPage) {
+    currentIndex = 0;
+  }
+
+  carousel.style.transform = `translateX(-${currentIndex * (365 + 20)}px)`;
+}
+
+// Automatically show the first 3 images
+moveSlide(0);
+
+
+    </script>
+   </body>
+</html>

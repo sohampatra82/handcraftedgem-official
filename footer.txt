@@ -1,0 +1,13 @@
+.professional-footer {
+  background-color: #ffffff;
+  color: #000000;
+  padding: 40px 0;
+  font-family: Arial, sans-serif;
+   position: fixed;  /* Fix the element relative to the viewport */
+    bottom: 0;        /* Position it at the bottom of the viewport */
+    left: 0;          /* Align to the left edge */
+    width: 100%; 
+   
+    padding: 10px;    /* Add some padding */
+    z-index: 1000;
+}

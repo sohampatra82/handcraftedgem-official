@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Roboto&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="https://ik.imagekit.io/7de5cntkw/Dark%20Green%20Modern%20Initial%20Logo%20(3)-photoaidcom-cropped.png?updatedAt=1738043221528" type="image/x-icon">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            font-family: 'Marcellus', serif;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input, select, button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .price-details {
+            margin: 20px 0;
+            padding: 10px;
+            background: #f1f1f1;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .price-details p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Payment Page</h1>
+        <form id="payment-form">
+            <!-- Delivery Address -->
+            <div class="form-group">
+                <label for="address">Delivery Address</label>
+                <input type="text" id="address" name="address" required>
+            </div>
+
+            <!-- Name -->
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+
+            <!-- Phone Number -->
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <div style="display: flex;">
+                    <select id="country-code" name="country-code" style="width: 25%; margin-right: 5px;">
+                        <option value="+1">+1 (USA)</option>
+                        <option value="+91">+91 (India)</option>
+                        <option value="+44">+44 (UK)</option>
+                        <option value="+61">+61 (Australia)</option>
+                        <!-- Add more countries as needed -->
+                    </select>
+                    <input type="text" id="phone" name="phone" style="width: 75%;" required>
+                </div>
+            </div>
+
+            <!-- Price Details -->
+            <div class="price-details">
+                <p><strong>Subtotal:</strong> $100</p>
+                <p><strong>Shipping:</strong> $10</p>
+                <p><strong>Total:</strong> $110</p>
+            </div>
+
+            <!-- Pay Section -->
+            <div class="form-group">
+                <button type="button" id="pay-button">Pay $110</button>
+            </div>
+
+            <!-- Place Order -->
+            <div class="form-group">
+                <button type="submit">Place Order</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('payment-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            // Simulate order placement and send confirmation email
+            alert('Order placed successfully! A confirmation email will be sent.');
+
+            // Simulate sending a confirmation email
+            console.log('Confirmation email sent to your email address.');
+        });
+    </script>
+</body>
+</html>

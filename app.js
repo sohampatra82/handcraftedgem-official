@@ -17,6 +17,9 @@ app.set('view engine', 'ejs') // REQUIRE VIEW-ENGINE
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
+app.get('/', (req, res) => {
+    res.render('handcrafted-gem')
+})
 app.get('/handcrafted-gem', (req, res) => {
     res.render('handcrafted-gem')
 })
@@ -166,7 +169,7 @@ app.post("/submitted", async (req, res) => {
 
 
 
-app.listen(3000, () => {
-    console.log(`server is running on ${'http://localhost:3000/handcrafted-gem'}`);
+app.listen(process.env.PORT , () => {
+    console.log(`server is running on ${'http://localhost:' + process.env.PORT }`);
     
 })
